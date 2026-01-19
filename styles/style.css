@@ -1,4 +1,131 @@
-.font-inter{
-  font-family: "Inter", sans-serif;
-  font-optical-sizing: auto;
+/* GLOBAL SETTINGS */
+.font-inter {
+    font-family: "Inter", sans-serif;
+    font-optical-sizing: auto;
+}
+
+/* NAVBAR VARIABLES */
+:root {
+    --bg-dark: #1A0B2E;
+    --text-white: #ffffff;
+    --accent-pink: #FF33CC;
+    --accent-purple: #8000FF;
+    --accent-yellow: #FFCC00;
+}
+
+/* CONTAINER & GENERAL */
+.container {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 0 20px;
+}
+
+/* NAVBAR MAIN */
+.navbar {
+    background-color: var(--bg-dark);
+    padding: 1.5rem 0;
+    position: sticky;
+    top: 0;
+    z-index: 1000;
+    border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+}
+
+.nav-wrapper {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+/* GRADIENT LOGO STYLING */
+.logo {
+    font-size: 1.5rem;
+    font-weight: 800;
+    color: var(--text-white);
+}
+
+.logo span {
+    background: linear-gradient(30deg, var(--accent-yellow), var(--accent-pink), var(--accent-purple));
+    -webkit-background-clip: text;
+    background-clip: text;
+    -webkit-text-fill-color: transparent;
+    color: transparent;
+    display: inline-block;
+}
+
+/* LINKS STYLING */
+.nav-links {
+    display: flex;
+    list-style: none;
+    gap: 2.5rem;
+    align-items: center;
+}
+
+.nav-links a {
+    text-decoration: none;
+    color: var(--text-white);
+    font-weight: 500;
+    transition: color 0.3s ease;
+}
+
+.nav-links a:hover {
+    color: var(--accent-yellow);
+}
+
+/* GRADIENT BUTTON */
+.btn-gradient {
+    background: linear-gradient(30deg, var(--accent-yellow), var(--accent-pink), var(--accent-purple));
+    color: #ffffff !important;
+    padding: 12px 24px;
+    border-radius: 50px;
+    font-weight: 700;
+    text-decoration: none;
+    transition: transform 0.3s ease;
+}
+
+.btn-gradient:hover {
+    transform: scale(1.05);
+}
+
+/* RESPONSIVE LOGIC */
+.menu-checkbox, .hamburger-label, .mobile-cta {
+    display: none;
+}
+
+/* Small Devices (Mobile View) */
+@media screen and (max-width: 576px) {
+    .hamburger-label {
+        display: block;
+        cursor: pointer;
+    }
+
+    .hamburger-icon {
+        width: 30px;
+    }
+
+    .desktop-only {
+        display: none;
+    }
+
+    .nav-links {
+        display: none;
+        flex-direction: column;
+        position: absolute;
+        top: 100%;
+        left: 0;
+        width: 100%;
+        background-color: var(--bg-dark);
+        padding: 2rem 0;
+        gap: 1.5rem;
+        text-align: center;
+        border-bottom: 1px solid var(--accent-pink);
+    }
+
+    .mobile-cta {
+        display: block;
+    }
+
+    /* Checkbox Hack for Menu Toggle */
+    .menu-checkbox:checked ~ .nav-links {
+        display: flex;
+    }
 }
