@@ -1,10 +1,12 @@
-/* GLOBAL SETTINGS */
 .font-inter {
-    font-family: "Inter", sans-serif;
-    font-optical-sizing: auto;
+
+  font-family: "Inter", sans-serif;
+
+  font-optical-sizing: auto;
+
 }
 
-/* NAVBAR VARIABLES */
+   /* Color Palette */
 :root {
     --bg-dark: #1A0B2E;
     --text-white: #ffffff;
@@ -13,14 +15,7 @@
     --accent-yellow: #FFCC00;
 }
 
-/* CONTAINER & GENERAL */
-.container {
-    max-width: 1200px;
-    margin: 0 auto;
-    padding: 0 20px;
-}
-
-/* NAVBAR MAIN */
+/* Navbar Container */
 .navbar {
     background-color: var(--bg-dark);
     padding: 1.5rem 0;
@@ -34,9 +29,12 @@
     display: flex;
     justify-content: space-between;
     align-items: center;
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 0 20px;
 }
 
-/* GRADIENT LOGO STYLING */
+/* Logo Styling */
 .logo {
     font-size: 1.5rem;
     font-weight: 800;
@@ -44,15 +42,22 @@
 }
 
 .logo span {
+    /* Adding yellow to create the gradient effect */
     background: linear-gradient(30deg, var(--accent-yellow), var(--accent-pink), var(--accent-purple));
+    
+    /* This clips the background to the shape of the letters */
     -webkit-background-clip: text;
     background-clip: text;
+    
+    /* This makes the text itself transparent so the gradient shows through */
     -webkit-text-fill-color: transparent;
     color: transparent;
+    
     display: inline-block;
 }
 
-/* LINKS STYLING */
+
+/* Nav Links - Desktop */
 .nav-links {
     display: flex;
     list-style: none;
@@ -71,7 +76,7 @@
     color: var(--accent-yellow);
 }
 
-/* GRADIENT BUTTON */
+/* Gradient Button */
 .btn-gradient {
     background: linear-gradient(30deg, var(--accent-yellow), var(--accent-pink), var(--accent-purple));
     color: #ffffff !important;
@@ -86,12 +91,14 @@
     transform: scale(1.05);
 }
 
-/* RESPONSIVE LOGIC */
+/* Hide Mobile Elements by Default */
 .menu-checkbox, .hamburger-label, .mobile-cta {
     display: none;
 }
 
-/* Small Devices (Mobile View) */
+/* --- RESPONSIVE BREAKPOINTS --- */
+
+/* Small Devices (Up to 576px) */
 @media screen and (max-width: 576px) {
     .hamburger-label {
         display: block;
@@ -99,7 +106,7 @@
     }
 
     .hamburger-icon {
-        width: 30px;
+        width: 30px; /* Adjust based on your image size */
     }
 
     .desktop-only {
@@ -107,7 +114,7 @@
     }
 
     .nav-links {
-        display: none;
+        display: none; /* Hide menu initially */
         flex-direction: column;
         position: absolute;
         top: 100%;
@@ -122,10 +129,242 @@
 
     .mobile-cta {
         display: block;
+        margin-top: 10px;
     }
 
-    /* Checkbox Hack for Menu Toggle */
+    /* Checkbox Hack: When checked, show nav-links */
     .menu-checkbox:checked ~ .nav-links {
         display: flex;
     }
+}
+
+/* Medium Devices (Optional Breakpoint) */
+@media screen and (min-width: 577px) and (max-width: 992px) {
+    .nav-links {
+        gap: 1.5rem;
+    }
+}
+
+/* BANNER SECTION */
+.banner {
+    padding: 100px 0;
+    background-image: url('../assets/hero-bg.png'); /* Waveform background */
+    background-size: cover;
+    background-position: center;
+    text-align: center;
+}
+
+.banner-wrapper {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+/* Podcast Circle Logic */
+.podcast-circle-view {
+    position: relative;
+    margin-bottom: 2rem;
+}
+
+.gradient-circle {
+    width: 410px;
+    height: 410px;
+    background-image: url('../assets/hero-circle.png');
+    background-size: cover;
+    border-radius: 50%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    /* Visual effect: subtle glow */
+    box-shadow: 0 0 30px rgba(255, 51, 204, 0.3);
+}
+
+.mic-icon {
+    width: 130px;
+    height: auto;
+}
+
+/* Badge positioning exactly as design */
+.badge-new {
+    position: absolute;
+    top: 5px;
+    right: -5px;
+    background-color: #00FF99; /* Neon green from design */
+    color: #000;
+    font-size: 0.75rem;
+    font-weight: 900;
+    padding: 4px 12px;
+    border-radius: 20px;
+    z-index: 5;
+}
+
+/* Text Styles */
+.banner-title {
+    font-size: 4.5rem;
+    font-weight: 900;
+    margin-bottom: 1rem;
+    color: var(--text-white);
+}
+
+.banner-description {
+    font-size: 1.1rem;
+    color: var(--text-white);
+    opacity: 0.9;
+    max-width: 500px;
+    margin-bottom: 2.5rem;
+    line-height: 1.6;
+}
+
+/* CTA Buttons */
+.banner-btns {
+    display: flex;
+    gap: 20px;
+}
+
+.btn-spotify {
+    background: linear-gradient(30deg, var(--accent-yellow), var(--accent-pink), var(--accent-purple));
+    color: #ffffff !important;
+    padding: 14px 28px;
+    border-radius: 50px;
+    font-weight: 700;
+    text-decoration: none;
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    transition: transform 0.3s ease;
+}
+
+.btn-subscribe-outline {
+    border: 1.5px solid #00FF99;
+    color: #00FF99;
+    padding: 14px 28px;
+    border-radius: 50px;
+    font-weight: 700;
+    text-decoration: none;
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    transition: transform 0.3s ease;
+}
+
+.cta-icon {
+    width: 20px;
+}
+
+.btn-spotify:hover, .btn-subscribe-outline:hover {
+    transform: translateY(-3px);
+}
+
+/* Mobile Responsive Layout (< 576px) */
+@media screen and (max-width: 576px) {
+    .banner-title {
+        font-size: 2.5rem;
+    }
+    .banner-btns {
+        flex-direction: column;
+        width: 100%;
+        padding: 0 40px;
+    }
+    .btn-spotify, .btn-subscribe-outline {
+        justify-content: center;
+    }
+}
+
+/* --- ABOUT SECTION STYLES --- */
+.about {
+    padding: 100px 0;
+    background-color: var(--bg-dark);
+    text-align: center;
+    color: var(--text-white);
+}
+
+.about-content {
+    max-width: 800px;
+    margin: 0 auto 80px;
+}
+
+.section-title {
+    font-size: 2.5rem;
+    font-weight: 800;
+    margin-bottom: 2rem;
+}
+
+.about-description {
+    font-size: 1.1rem;
+    line-height: 1.8;
+    opacity: 0.8;
+    margin-bottom: 1.5rem;
+}
+
+/* Stats Grid Layout */
+.stats-grid {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr); /* 4 columns for large devices */
+    gap: 30px;
+    margin-top: 60px;
+}
+
+.stat-card {
+    padding: 20px;
+}
+
+.stat-number {
+    font-size: 3rem;
+    font-weight: 900;
+    color: #00FF99; /* The neon green from your screenshots */
+    margin-bottom: 10px;
+}
+
+.stat-label {
+    font-size: 0.9rem;
+    font-weight: 600;
+    letter-spacing: 1px;
+    opacity: 0.7;
+    text-transform: uppercase;
+}
+
+/* --- RESPONSIVE BREAKPOINTS --- */
+
+/* Medium Devices (576px to 992px) */
+@media screen and (max-width: 992px) {
+    .stats-grid {
+        grid-template-columns: repeat(2, 1fr); /* 2x2 grid for tablets */
+        gap: 40px;
+    }
+    .stat-number { font-size: 2.5rem; }
+}
+
+/* Small Devices (Up to 576px) */
+@media screen and (max-width: 576px) {
+    .section-title { font-size: 2rem; }
+    
+    .stats-grid {
+        grid-template-columns: repeat(2, 1fr); /* Stay 2x2 but smaller text */
+        gap: 20px;
+    }
+    
+    .stat-number { font-size: 2rem; }
+    
+    .stat-label { font-size: 0.75rem; }
+}
+
+.section-divider {
+    border: none;
+    height: 1px;
+    background-color: rgba(255, 255, 255, 0.1); 
+    width: 80%; 
+    max-width: 1000px;
+    margin: 60px auto; 
+}
+
+/* GLOBAL RESET */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    background-color: var(--bg-dark); /* Ensures no white shows if the content is short */
+    overflow-x: hidden; /* Prevents unwanted horizontal scrolling */
 }
