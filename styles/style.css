@@ -6,7 +6,7 @@
 
 }
 
-   /* Color Palette */
+/* Color Palette */
 :root {
     --bg-dark: #1A0B2E;
     --text-white: #ffffff;
@@ -16,7 +16,27 @@
     --accent-litepurple: #230E3D;
 }
 
-/* Navbar Container */
+/* GLOBAL RESET */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    background-color: var(--bg-dark);
+    color: var(--text-white);
+    font-family: "Inter", sans-serif;
+    overflow-x: hidden;
+}
+
+.container {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 0 20px;
+}
+
+/* NAVBAR SECTION */
 .navbar {
     background-color: var(--bg-dark);
     padding: 1.5rem 0;
@@ -35,7 +55,6 @@
     padding: 0 20px;
 }
 
-/* Logo Styling */
 .logo {
     font-size: 1.5rem;
     font-weight: 800;
@@ -43,22 +62,14 @@
 }
 
 .logo span {
-    /* Adding yellow to create the gradient effect */
     background: linear-gradient(30deg, var(--accent-yellow), var(--accent-pink), var(--accent-purple));
-    
-    /* This clips the background to the shape of the letters */
     -webkit-background-clip: text;
     background-clip: text;
-    
-    /* This makes the text itself transparent so the gradient shows through */
     -webkit-text-fill-color: transparent;
     color: transparent;
-    
     display: inline-block;
 }
 
-
-/* Nav Links - Desktop */
 .nav-links {
     display: flex;
     list-style: none;
@@ -77,7 +88,6 @@
     color: var(--accent-yellow);
 }
 
-/* Gradient Button */
 .btn-gradient {
     background: linear-gradient(30deg, var(--accent-yellow), var(--accent-pink), var(--accent-purple));
     color: #ffffff !important;
@@ -86,82 +96,23 @@
     font-weight: 700;
     text-decoration: none;
     transition: transform 0.3s ease;
+    display: inline-block;
 }
 
 .btn-gradient:hover {
     transform: scale(1.05);
 }
 
-/* Hide Mobile Elements by Default */
-.menu-checkbox, .hamburger-label, .mobile-cta {
+.menu-checkbox,
+.hamburger-label,
+.mobile-cta {
     display: none;
-}
-
-/* --- RESPONSIVE BREAKPOINTS --- */
-
-/* Small Devices (Up to 576px) */
-@media screen and (max-width: 576px) {
-    .hamburger-label {
-        display: block;
-        cursor: pointer;
-    }
-
-    .hamburger-icon {
-        width: 30px; /* Adjust based on your image size */
-    }
-
-    .desktop-only {
-        display: none;
-    }
-
-    .nav-links {
-        display: none; /* Hide menu initially */
-        flex-direction: column;
-        position: absolute;
-        top: 100%;
-        left: 0;
-        width: 100%;
-        background-color: var(--bg-dark);
-        padding: 2rem 0;
-        gap: 1.5rem;
-        text-align: center;
-        border-bottom: 1px solid var(--accent-pink);
-    }
-
-    .mobile-cta {
-        display: block;
-        margin-top: 10px;
-    }
-
-    /* Checkbox Hack: When checked, show nav-links */
-    .menu-checkbox:checked ~ .nav-links {
-        display: flex;
-    }
-}
-
-/* Medium Devices (Optional Breakpoint) */
-@media screen and (min-width: 577px) and (max-width: 992px) {
-    .nav-links {
-        gap: 1.5rem;
-    }
-}
-
-/* GLOBAL RESET */
-* {
-    margin: 0;
-    padding: 0;
-    box-sizing: border-box;
-}
-
-body {
-    background-color: var(--bg-dark); /* Ensures no white shows if the content is short */
-    overflow-x: hidden; /* Prevents unwanted horizontal scrolling */
 }
 
 /* BANNER SECTION */
 .banner {
     padding: 100px 0;
-    background-image: url('../assets/hero-bg.png'); /* Waveform background */
+    background-image: url('../assets/hero-bg.png');
     background-size: cover;
     background-position: center;
     text-align: center;
@@ -173,7 +124,6 @@ body {
     align-items: center;
 }
 
-/* Podcast Circle Logic */
 .podcast-circle-view {
     position: relative;
     margin-bottom: 2rem;
@@ -188,7 +138,6 @@ body {
     display: flex;
     justify-content: center;
     align-items: center;
-    /* Visual effect: subtle glow */
     box-shadow: 0 0 30px rgba(255, 51, 204, 0.3);
 }
 
@@ -197,12 +146,11 @@ body {
     height: auto;
 }
 
-/* Badge positioning exactly as design */
 .badge-new {
     position: absolute;
     top: 5px;
     right: -5px;
-    background-color: #00FF99; /* Neon green from design */
+    background-color: #00FF99;
     color: #000;
     font-size: 0.75rem;
     font-weight: 900;
@@ -211,7 +159,6 @@ body {
     z-index: 5;
 }
 
-/* Text Styles */
 .banner-title {
     font-size: 4.5rem;
     font-weight: 900;
@@ -228,10 +175,11 @@ body {
     line-height: 1.6;
 }
 
-/* CTA Buttons */
 .banner-btns {
     display: flex;
     gap: 20px;
+    flex-wrap: wrap;
+    justify-content: center;
 }
 
 .btn-spotify {
@@ -264,65 +212,12 @@ body {
     width: 20px;
 }
 
-.btn-spotify:hover, .btn-subscribe-outline:hover {
+.btn-spotify:hover,
+.btn-subscribe-outline:hover {
     transform: translateY(-3px);
 }
 
-/* Mobile Responsive Layout (< 576px) */
-@media screen and (max-width: 576px) {
-    /* 1. Scale down the large circle so it doesn't overflow */
-    .gradient-circle {
-        width: 280px;  /* Reduced from 410px */
-        height: 280px; /* Reduced from 410px */
-    }
-
-    .mic-icon {
-        width: 80px;   /* Smaller mic for smaller circle */
-    }
-
-    /* 2. Responsive Title Font */
-    .banner-title {
-        font-size: 2.5rem;
-        margin-top: 10px;
-    }
-
-    .banner-description {
-        font-size: 1rem;
-        padding: 0 15px; /* Adds breathing room on sides */
-    }
-
-    /* 3. Stack buttons vertically and center them */
-    .banner-btns {
-        flex-direction: column;
-        width: 100%;
-        max-width: 300px; /* Limits button width on mobile */
-        margin: 0 auto;
-        gap: 15px;
-    }
-
-    .btn-spotify, .btn-subscribe-outline {
-        justify-content: center;
-        width: 100%;
-    }
-
-    .badge-new {
-        right: 20px; /* Adjust badge position for smaller circle */
-        top: 10px;
-    }
-}
-
-/* Tablet / Small Laptop adjustment (Optional but recommended) */
-@media screen and (min-width: 577px) and (max-width: 992px) {
-    .gradient-circle {
-        width: 340px;
-        height: 340px;
-    }
-    .banner-title {
-        font-size: 3.5rem;
-    }
-}
-
-/* --- ABOUT SECTION STYLES --- */
+/* ABOUT SECTION */
 .about {
     padding: 100px 0;
     background-color: var(--bg-dark);
@@ -350,7 +245,15 @@ body {
     margin-bottom: 1.5rem;
 }
 
-/* Stats Grid for Desktop (4 columns) */
+.section-divider {
+    border: none;
+    height: 1px;
+    background-color: rgba(255, 255, 255, 0.1);
+    width: 90%;
+    max-width: 1100px;
+    margin: 40px auto;
+}
+
 .stats-grid {
     display: grid;
     grid-template-columns: repeat(4, 1fr);
@@ -366,7 +269,7 @@ body {
 .stat-number {
     font-size: 3rem;
     font-weight: 900;
-    color: #00FF99; /* Neon Green */
+    color: #00FF99;
     margin-bottom: 8px;
 }
 
@@ -378,56 +281,9 @@ body {
     text-transform: uppercase;
 }
 
-.section-divider {
-    border: none;
-    height: 1px;
-    background-color: rgba(255, 255, 255, 0.1); 
-    width: 90%; 
-    max-width: 1100px;
-    margin: 40px auto; 
-}
-
-/* --- RESPONSIVE BREAKPOINTS --- */
-
-/* Tablet View (992px and down) */
-@media screen and (max-width: 992px) {
-    .stats-grid {
-        grid-template-columns: repeat(2, 1fr); /* 2x2 grid */
-        gap: 40px;
-    }
-    .section-title {
-        font-size: 2.2rem;
-    }
-}
-
-/* Mobile View (576px and down) */
-@media screen and (max-width: 576px) {
-    .about {
-        padding: 60px 0;
-    }
-
-    .about-description {
-        font-size: 1rem;
-    }
-
-    .stats-grid {
-        grid-template-columns: repeat(2, 1fr); /* Keep 2x2 for symmetry */
-        gap: 20px;
-    }
-    
-    .stat-number {
-        font-size: 2rem;
-    }
-    
-    .stat-label {
-        font-size: 0.7rem;
-        letter-spacing: 1px;
-    }
-}
-
-/* --- WHY CHOOSE SECTION --- */
+/* FEATURES SECTION - IMPROVED RESPONSIVE */
 .features {
-    padding: 80px 0;
+    padding: 100px 0;
     background-color: var(--accent-litepurple);
 }
 
@@ -440,85 +296,596 @@ body {
 
 .features-grid {
     display: grid;
-    /* 12 columns allow for the most flexible desktop layout */
-    grid-template-columns: repeat(12, 1fr);
+    grid-template-columns: 1fr 1fr 1fr;
+    grid-template-areas:
+        "audio mobile mobile"
+        "audio global global"
+        "interview interview resource";
     gap: 24px;
-    max-width: 1200px;
-    margin: 0 auto;
-    padding: 0 20px;
 }
 
-/* LAPTOP VIEW: 3 cards per row (12 / 3 = 4 columns each) */
 .feature-card {
     background: rgba(255, 255, 255, 0.05);
     border: 1px solid rgba(255, 255, 255, 0.1);
-    padding: 40px;
-    border-radius: 20px;
-    grid-column: span 4; 
-    transition: all 0.3s ease;
+    padding: 35px;
+    border-radius: 24px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
 }
 
-/* LAPTOP VIEW: 2 cards per row (12 / 2 = 6 columns each) */
-.feature-card.wide {
-    grid-column: span 6;
+.mobile-card,
+.global-card {
+    flex-direction: row !important;
+    align-items: center;
+    gap: 25px;
 }
 
-.feature-card:hover {
-    transform: translateY(-10px);
-    border-color: var(--accent-pink);
-    background: rgba(255, 255, 255, 0.08);
-}
+.feature-card.audio-card { grid-area: audio; min-height: 400px; }
+.feature-card.mobile-card { grid-area: mobile; }
+.feature-card.global-card { grid-area: global; }
+.feature-card.interview-card { grid-area: interview; flex-direction: column; }
+.feature-card.resource-card { grid-area: resource; }
 
 .feature-icon {
-    width: 48px;
-    height: 48px;
+    width: 50px;
+    height: auto;
     margin-bottom: 20px;
+    flex-shrink: 0;
+}
+
+.mobile-card .feature-icon,
+.global-card .feature-icon {
+    margin-bottom: 0;
 }
 
 .feature-card h3 {
-    color: var(--text-white);
     font-size: 1.4rem;
     margin-bottom: 15px;
 }
 
 .feature-card p {
-    color: var(--text-white);
     opacity: 0.7;
     line-height: 1.6;
+    font-size: 0.95rem;
 }
 
-/* --- RESPONSIVE BREAKPOINTS --- */
+/* EPISODES SECTION */
+.episodes {
+    padding: 100px 0;
+    background-color: #1a0b2e;
+}
 
-/* TABLET VIEW (992px and below) */
+.featured-title {
+    text-align: center;
+    font-size: 3rem;
+    font-weight: 800;
+    margin-bottom: 60px;
+    color: var(--text-white);
+}
+
+.episodes-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 30px;
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 0 20px;
+}
+
+.episode-video-card {
+    background: rgba(255, 255, 255, 0.05);
+    border-radius: 20px;
+    overflow: hidden;
+    border: 1px solid rgba(255, 255, 255, 0.1);
+    transition: transform 0.3s ease;
+}
+
+.episode-video-card:hover {
+    transform: translateY(-5px);
+}
+
+.video-placeholder {
+    width: 100%;
+    aspect-ratio: 16 / 9;
+    background-color: #000;
+}
+
+.episode-content {
+    padding: 20px 20px 0 20px;
+}
+
+.episode-content h3 {
+    color: var(--text-white);
+    font-size: 1.4rem;
+    font-weight: 700;
+    margin-bottom: 10px;
+    line-height: 1.3;
+}
+
+.episode-content p {
+    color: var(--text-white);
+    opacity: 0.7;
+    font-size: 0.95rem;
+    line-height: 1.5;
+    margin-bottom: 0;
+}
+
+.episode-meta {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    padding: 15px 20px 20px 20px;
+}
+
+.clock-icon {
+    width: 20px;
+    height: 20px;
+}
+
+.duration-text {
+    color: #ffffff;
+    font-size: 1rem;
+    font-weight: 500;
+    opacity: 0.9;
+}
+
+/* HOST SECTION */
+.host {
+    padding: 100px 0;
+    background-color: var(--bg-dark);
+}
+
+.host-section-title {
+    text-align: center;
+    color: var(--text-white);
+    font-size: 3rem;
+    font-weight: 800;
+    margin-bottom: 60px;
+}
+
+.host-card {
+    background: var(--accent-litepurple);
+    border-radius: 40px;
+    padding: 60px;
+    display: flex;
+    align-items: center;
+    gap: 50px;
+    max-width: 1100px;
+    margin: 0 auto;
+}
+
+.host-image-container {
+    flex-shrink: 0;
+}
+
+.host-profile-pic {
+    width: 250px;
+    height: 250px;
+    border-radius: 50%;
+    object-fit: cover;
+    border: 4px solid rgba(255, 255, 255, 0.05);
+}
+
+.host-info h3 {
+    color: var(--text-white);
+    font-size: 2.2rem;
+    font-weight: 800;
+    margin-bottom: 20px;
+}
+
+.host-info p {
+    color: var(--text-white);
+    opacity: 0.7;
+    line-height: 1.8;
+    font-size: 1.1rem;
+    margin-bottom: 30px;
+}
+
+.social-links {
+    display: flex;
+    gap: 12px;
+    margin-top: 10px;
+}
+
+.social-icon {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 36px;
+    height: 36px;
+    border-radius: 50%;
+    background: rgba(255, 255, 255, 0.05);
+    border: 1px solid rgba(255, 255, 255, 0.2);
+    transition: all 0.3s ease;
+    text-decoration: none;
+}
+
+.social-icon img {
+    width: 16px;
+    height: 16px;
+    object-fit: contain;
+    filter: brightness(0) invert(1) opacity(0.8);
+}
+
+.social-icon:hover {
+    background: var(--accent-pink);
+    border-color: var(--accent-pink);
+    transform: translateY(-3px);
+}
+
+.social-icon:hover img {
+    filter: brightness(1) invert(1) opacity(1);
+}
+
+/* FOOTER SECTION */
+.footer {
+    padding: 120px 0 60px;
+    background-color: var(--bg-dark);
+    background-image: url('../assets/footer-bg.png');
+    background-size: 100% auto;
+    background-position: center;
+    background-repeat: no-repeat;
+    text-align: center;
+}
+
+.footer-container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.footer-logo {
+    font-size: 4rem;
+    margin-bottom: 60px;
+}
+
+.footer-platforms {
+    display: flex;
+    justify-content: center;
+    gap: 50px;
+    margin-bottom: 60px;
+    flex-wrap: wrap;
+}
+
+.platform-item {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    color: var(--text-white);
+    text-decoration: none;
+    font-weight: 500;
+    opacity: 0.8;
+    transition: opacity 0.3s ease;
+}
+
+.platform-item img {
+    width: 20px;
+    height: auto;
+}
+
+.platform-item:hover {
+    opacity: 1;
+}
+
+.footer-copyright {
+    color: var(--text-white);
+    opacity: 0.3;
+    font-size: 0.9rem;
+}
+
+/* RESPONSIVE BREAKPOINTS */
+
+/* TABLET (768px - 992px) */
 @media screen and (max-width: 992px) {
-    .features-grid {
-        grid-template-columns: repeat(2, 1fr); /* Force exactly 2 columns */
+    /* Navbar */
+    .nav-links {
+        gap: 1.5rem;
     }
-    
-    .feature-card, .feature-card.wide {
-        grid-column: span 1; /* Reset both card types to fill 1 of the 2 columns */
+
+    /* Banner */
+    .gradient-circle {
+        width: 340px;
+        height: 340px;
+    }
+
+    .banner-title {
+        font-size: 3.5rem;
+    }
+
+    /* About */
+    .stats-grid {
+        grid-template-columns: repeat(2, 1fr);
+        gap: 40px;
+    }
+
+    .section-title {
+        font-size: 2.2rem;
+    }
+
+    /* Features - CRITICAL FIX */
+    .features-grid {
+        grid-template-columns: 1fr 1fr;
+        grid-template-areas:
+            "audio audio"
+            "mobile global"
+            "interview interview"
+            "resource resource";
+    }
+
+    .feature-card {
+        padding: 30px;
+    }
+
+    /* Episodes */
+    .episodes-grid {
+        grid-template-columns: repeat(2, 1fr);
+    }
+
+    /* Host */
+    .host-card {
+        flex-direction: column;
+        text-align: center;
+        padding: 40px;
+        margin: 0 20px;
+    }
+
+    .social-links {
+        justify-content: center;
+    }
+
+    /* Footer */
+    .footer-platforms {
+        gap: 30px;
     }
 }
 
-/* MOBILE VIEW (600px and below) */
-@media screen and (max-width: 600px) {
-    .features-grid {
-        display: flex; /* Switch to flex-direction column for 100% stability */
+/* MOBILE (Up to 768px) */
+@media screen and (max-width: 768px) {
+    /* Footer specific */
+    .footer-logo {
+        font-size: 2.5rem;
+    }
+
+    .footer-platforms {
+        gap: 15px;
+    }
+
+    .footer {
+        background-size: cover;
+        padding: 80px 0 40px;
+    }
+}
+
+/* SMALL MOBILE (Up to 576px) */
+@media screen and (max-width: 576px) {
+    /* Navbar */
+    .hamburger-label {
+        display: block;
+        cursor: pointer;
+    }
+
+    .hamburger-icon {
+        width: 30px;
+    }
+
+    .desktop-only {
+        display: none;
+    }
+
+    .nav-links {
+        display: none;
         flex-direction: column;
+        position: absolute;
+        top: 100%;
+        left: 0;
+        width: 100%;
+        background-color: var(--bg-dark);
+        padding: 2rem 0;
+        gap: 1.5rem;
+        text-align: center;
+        border-bottom: 1px solid var(--accent-pink);
+    }
+
+    .mobile-cta {
+        display: block;
+        margin-top: 10px;
+    }
+
+    .menu-checkbox:checked ~ .nav-links {
+        display: flex;
+    }
+
+    /* Banner */
+    .banner {
+        padding: 60px 0;
+    }
+
+    .gradient-circle {
+        width: 280px;
+        height: 280px;
+    }
+
+    .mic-icon {
+        width: 80px;
+    }
+
+    .banner-title {
+        font-size: 2.5rem;
+        margin-top: 10px;
+    }
+
+    .banner-description {
+        font-size: 1rem;
+        padding: 0 15px;
+    }
+
+    .banner-btns {
+        flex-direction: column;
+        width: 100%;
+        max-width: 300px;
+        margin: 0 auto;
+        gap: 15px;
+    }
+
+    .btn-spotify,
+    .btn-subscribe-outline {
+        justify-content: center;
+        width: 100%;
+    }
+
+    .badge-new {
+        right: 20px;
+        top: 10px;
+    }
+
+    /* About */
+    .about {
+        padding: 60px 0;
+    }
+
+    .about-description {
+        font-size: 1rem;
+    }
+
+    .stats-grid {
+        grid-template-columns: repeat(2, 1fr);
         gap: 20px;
     }
 
-    .feature-card, .feature-card.wide {
-        width: 100%; /* Ensure full width on mobile */
-        padding: 30px 20px;
-        grid-column: auto; /* Remove grid logic */
+    .stat-number {
+        font-size: 2rem;
+    }
+
+    .stat-label {
+        font-size: 0.7rem;
+        letter-spacing: 1px;
+    }
+
+    /* Features - MOBILE STACKING */
+    .features {
+        padding: 60px 0;
     }
 
     .features .section-title {
-        font-size: 1.8rem;
+        font-size: 2rem;
     }
-    
+
+    .features-grid {
+        grid-template-columns: 1fr;
+        grid-template-areas:
+            "audio"
+            "mobile"
+            "global"
+            "interview"
+            "resource";
+        gap: 20px;
+    }
+
+    .feature-card {
+        padding: 25px;
+    }
+
+    .mobile-card,
+    .global-card {
+        flex-direction: column;
+        align-items: flex-start;
+    }
+
+    .mobile-card .feature-icon,
+    .global-card .feature-icon {
+        margin-bottom: 15px;
+    }
+
     .feature-card h3 {
         font-size: 1.2rem;
+    }
+
+    .feature-card p {
+        font-size: 0.9rem;
+    }
+
+    /* Episodes */
+    .episodes {
+        padding: 60px 0;
+    }
+
+    .episodes-grid {
+        grid-template-columns: 1fr;
+    }
+
+    .featured-title {
+        font-size: 2.2rem;
+    }
+
+    .episode-content h3 {
+        font-size: 1.2rem;
+    }
+
+    .duration-text {
+        font-size: 0.85rem;
+    }
+
+    /* Host */
+    .host {
+        padding: 60px 0;
+    }
+
+    .host-section-title {
+        font-size: 2.2rem;
+    }
+
+    .host-card {
+        padding: 30px 20px;
+    }
+
+    .host-profile-pic {
+        width: 180px;
+        height: 180px;
+    }
+
+    .host-info h3 {
+        font-size: 1.8rem;
+    }
+
+    .host-info p {
+        font-size: 1rem;
+    }
+
+    /* Footer */
+    .footer {
+        padding: 60px 0 40px;
+    }
+
+    .footer-logo {
+        font-size: 2rem;
+    }
+
+    .platform-item {
+        font-size: 0.9rem;
+    }
+}
+
+/* EXTRA SMALL (Up to 400px) */
+@media screen and (max-width: 400px) {
+    .gradient-circle {
+        width: 240px;
+        height: 240px;
+    }
+
+    .mic-icon {
+        width: 70px;
+    }
+
+    .banner-title {
+        font-size: 2rem;
+    }
+
+    .stat-number {
+        font-size: 1.5rem;
+    }
+
+    .footer-logo {
+        font-size: 1.8rem;
     }
 }
