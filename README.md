@@ -2,16 +2,6 @@
 
 A clean, fully responsive landing page for **TechWave**, a fictional tech podcast covering AI, productivity, and personal growth. Built as a front-end assignment using pure HTML and CSS.
 
----
-
-## 🖼️ Screenshot
-
-> *(Add a screenshot of your live site here — e.g. `assets/screenshot.png`)*
-
-![TechWave Preview](assets/screenshot.png)
-
----
-
 ## 🌐 Live Demo
 
 👉 [View Live Site](https://tomal5085.github.io/ASSIGNMENT-002/)
